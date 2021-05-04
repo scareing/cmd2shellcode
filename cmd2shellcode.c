@@ -141,9 +141,6 @@ char exec[] = {
     /* 00D1 */ "\xe8\x39\xff\xff\xff"         /* call 0xf                        */
 };
 
-
-// allocate read/write and executable memory
-// copy data from code and execute
 void xcode(void* code, size_t code_len, char* cmd, size_t cmd_len)
 {
     void* bin;
@@ -169,14 +166,10 @@ void xcode(void* code, size_t code_len, char* cmd, size_t cmd_len)
         // copy cmd
         memcpy((void*)&p[code_len], cmd, cmd_len);
         // copy argv
-        //memcpy((void*)&p[code_len + cmd_len], args, arg_len);
         int s,l;
         l = code_len + cmd_len;
         for (s = 0; s < l; s++)
             printf("\\x%02x", p[s]);
-
-        //DebugBreak();
-        //bin2file((uint8_t*)bin, code_len + cmd_len);
 
         // execute
         ((void(*)())bin)();
