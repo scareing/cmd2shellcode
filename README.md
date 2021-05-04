@@ -1,6 +1,9 @@
 # cmd2shellcode
 
-> 用于将cmd命令转化为shellcode形式运行，可结合shellcode加载方式用于杀软规避。
+## 用于将cmd命令转化为shellcode形式运行，可结合shellcode加载方式用于杀软规避。
+
+> usage: cmd2shellcode <command>
+> 具体如何通过加载shellcode来实现杀软规避，需自行尝试。
 
 例子：正常添加用户和cmd2shellcode添加用户和CS添加用户。
 
